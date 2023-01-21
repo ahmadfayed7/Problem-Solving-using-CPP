@@ -1,40 +1,33 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Sort Array By Parity.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
+vector<int> sortArrayByParity(vector<int>& nums) {
+    vector<int> out;
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums[i] % 2 == 0)
+        {
+            out.push_back(nums[i]);
+        }
+    }
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums[i] % 2 != 0)
+        {
+            out.push_back(nums[i]);
+        }
+    }
+    return out;
+}
 int main()
 {
-    int n;
-    string s;
-    cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
-    {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
-        {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
-        }
-        cout << "YES";
-    }
+   
+
+   cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

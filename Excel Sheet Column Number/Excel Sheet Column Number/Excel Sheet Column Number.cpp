@@ -1,40 +1,23 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Excel Sheet Column Number.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
+int titleToNumber(string s) {
+    long long count = 0;
+    long long power = 1;
+    for (int i = s.size() - 1; i >= 0; i--)
+    {
+        count += (s[i] - 64) * power;
+        power *= 26;
+    }
+
+    return count;
+}
 int main()
 {
-    int n;
-    string s;
-    cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
-    {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
-        {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
-        }
-        cout << "YES";
-    }
+    std::cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

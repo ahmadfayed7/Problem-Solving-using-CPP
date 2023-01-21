@@ -1,40 +1,43 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Time Conversion.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
-int main()
+
+string converttime(string n)
 {
-    int n;
-    string s;
-    cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+    if (n[8] == 'P')
     {
-        cout << "NO";
+        int h = ((n[0] - '0') * 10) + (n[1] - '0');
+        if (h < 12)
+        {
+            h = (h + 12) % 24;
+            n[0] = h / 10 + '0';
+            n[1] = h % 10 + '0';
+        }
     }
     else {
-        for (char c = 'a'; c <= 'z'; c++)
+        int h = ((n[0] - '0') * 10) + (n[1] - '0');
+        if (h == 12)
         {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
+            
+            n[0] ='0';
+            n[1] = '0';
         }
-        cout << "YES";
     }
+
+    n.pop_back();
+    n.pop_back();
+    return n;
+}
+
+int main()
+{
+    string input,output;
+    cin >> input;
+    output = converttime(input);
+   cout << output;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

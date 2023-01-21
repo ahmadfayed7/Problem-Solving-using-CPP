@@ -1,40 +1,36 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// I_love_username.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include <string>
+#include  <vector>
 using namespace std;
 int main()
 {
-    int n;
-    string s;
+    int n ,e,max,min,count=0;
+    
     cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+    cin >> e;
+    min = e;
+    max = e;
+    for (int i = 1; i < n; i++)
     {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
+        cin >> e;
+        if (e > max)
         {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
+            count++;
+            max = e;
         }
-        cout << "YES";
+        else if (e < min)
+        {
+            count++;
+           min = e;
+        }
+        else
+        {
+
+        }
     }
+    cout << count;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

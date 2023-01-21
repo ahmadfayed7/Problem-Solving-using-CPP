@@ -1,40 +1,26 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Find Smallest Letter Greater Than Target.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
+#include <vector>
+#include <algorithm>
+char nextGreatestLetter(vector<char>& letters, char target) {
+    char r = letters[0];
+    sort(letters.begin(), letters.end());
+    for (int i = 0; i < letters.size(); i++)
+    {
+        if (letters[i] > target)
+        {
+            r = letters[i];
+            break;
+        }
+    }
+    return r;
+}
 int main()
 {
-    int n;
-    string s;
-    cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
-    {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
-        {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
-        }
-        cout << "YES";
-    }
+    std::cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

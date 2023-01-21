@@ -1,40 +1,22 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Currency System in Geraldion.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include <string>
 using namespace std;
 int main()
 {
-    int n;
-    string s;
+    int n,e;
     cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+    for (int i = 0; i < n; i++)
     {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
+        cin >> e;
+        if (e == 1)
         {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
+            cout << -1;
+            return 0;
         }
-        cout << "YES";
     }
+    cout << 1;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

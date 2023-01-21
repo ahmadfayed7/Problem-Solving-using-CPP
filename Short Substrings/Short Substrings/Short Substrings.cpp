@@ -1,40 +1,42 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Short Substrings.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
+
+string convertstring(string s)
+{
+    string out;
+    out.push_back(s[0]);
+    for (int i = 1; i < s.size()-1; i++) {
+
+        if (s[i] == s[i-1] )
+        {
+
+            out.push_back(s[i]);
+            i++;
+        }
+
+
+       
+    }
+    out.push_back(s[s.size() - 1 ]);
+    return out;
+}
 int main()
 {
     int n;
     string s;
     cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+    for (int i = 0; i < n; i++)
     {
-        cout << "NO";
+        cin >> s;
+        cout << convertstring(s) << endl;
+        s.clear();
     }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
-        {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
-        }
-        cout << "YES";
-    }
+
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

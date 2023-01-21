@@ -1,40 +1,45 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Length of Last Word.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 using namespace std;
-int main()
-{
-    int n;
-    string s;
-    cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+int lengthOfLastWord(string s) {
+    int count = 0;
+    for (int i = s.size() - 1; i >= 0; i--)
     {
-        cout << "NO";
-    }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
+        if (s[i] == ' ')
         {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
+            s.pop_back();
         }
-        cout << "YES";
+        else
+        {
+            break;
+        }
+
     }
+    for (int i = s.size() - 1; i >= 0; i--)
+    {
+        if (s[i] != ' ')
+        {
+            count++;
+
+        }
+        else
+        {
+            break;
+        }
+
+    }
+    return count;
+}
+int main()
+
+{
+    string s;
+    cin >> s;
+    int count = lengthOfLastWord(s);
+    cout <<count;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

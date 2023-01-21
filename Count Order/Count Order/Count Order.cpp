@@ -1,40 +1,37 @@
-// Pangram.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Count Order.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
 int main()
 {
-    int n;
-    string s;
+    int n,e;
+    vector <int> a, b,v;
+    int f = 0, l = 0;
     cin >> n;
-    cin >> s;
-    bool found = false;
-    if (n < 26)
+    for (int i = 0; i < n; i++)
     {
-        cout << "NO";
+        cin >> e;
+        a.push_back(e);
     }
-    else {
-        for (char c = 'a'; c <= 'z'; c++)
-        {
-            found = false;
-            for (int i = 0; i < s.size(); i++)
-            {
-                if (s[i] == c || s[i] == (c -32))
-                {
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-            {
-                cout << "NO";
-                return 0;
-            }
-        }
-        cout << "YES";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> e;
+        b.push_back(e);
     }
+    for (int i = 0; i < n; i++)
+    {
+        v.push_back( i + 1);
+    }
+    int i = 1;
+    do {
+        if (v == a)  f = i;
+        if (v == b)  l=i;
+        i++;
+    } while (next_permutation(v.begin(),v.end()));
+        cout << abs(f - l);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
